@@ -75,7 +75,7 @@ from io import BytesIO
 class Credibility( object ):
    
     def predict( self, cls, text, nlp ):
-        vector = self.__convert2vector(text)
+        vector = self.__convert2vector(text, nlp)
         predictTestCD = cls.predict(vector)
         predictTestCD = int(predictTestCD[0])
         if predictTestCD == 0: 
