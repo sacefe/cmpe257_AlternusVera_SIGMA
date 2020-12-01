@@ -77,7 +77,7 @@ class NetworkBasedPredictor():
   def __init__(self):
     self.model = None
 
-  def __convert2vector(self, tweetToPredict): 
+  def __convert2vector(self, tweetToPredict, nlp): 
         textToPredict = str(tweetToPredict)
         review = nlp(textToPredict)
         nlpx_tweet = []
