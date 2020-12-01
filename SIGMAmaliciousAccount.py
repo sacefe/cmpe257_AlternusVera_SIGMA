@@ -80,8 +80,8 @@ class MalicousAccount( object ):
     def __init__( self ):
         ma = 0
 
-    def predict( self, cls, tweetText ): 
-        tweetVector = self.__convert2vector(tweetText)
+    def predict( self, cls, tweetText, nlp ): 
+        tweetVector = self.__convert2vector(tweetText, nlp)
         predictionResult =  cls.predict(tweetVector)
         botScoreResult, labelResult = self.__predictionScore(predictionResult) 
         # print('label: ', predictionResult)
@@ -111,7 +111,7 @@ class MalicousAccount( object ):
 
 #===Private funtions
     # Convert to verctor using word2Vec
-    def __convert2vector(self, tweetToPredict): 
+    def __convert2vector(self, tweetToPredict, nlp): 
         textToPredict = str(tweetToPredict)
         review = nlp(textToPredict)
         nlpx_tweet = []

@@ -74,7 +74,7 @@ from io import BytesIO
 
 class Credibility( object ):
    
-    def predict( self, cls, text ):
+    def predict( self, cls, text, nlp ):
         vector = self.__convert2vector(text)
         predictTestCD = cls.predict(vector)
         predictTestCD = int(predictTestCD[0])
@@ -107,7 +107,7 @@ class Credibility( object ):
         msg = "saved model " + modelName 
         return msg
 
-    def __convert2vector(self, tweetToPredict): 
+    def __convert2vector(self, tweetToPredict, nlp): 
         textToPredict = str(tweetToPredict)
         review = nlp(textToPredict)
         nlpx_tweet = []

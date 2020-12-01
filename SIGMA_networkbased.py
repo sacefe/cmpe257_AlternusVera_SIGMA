@@ -102,7 +102,7 @@ class NetworkBasedPredictor():
     with open(path, 'rb') as file:  
         self.model = pickle.load(file)
 
-  def predict(self, text, source=0):
-    df = self.__convert2vector(text)
+  def predict(self, text, nlp, source=0):
+    df = self.__convert2vector(text, nlp)
     df['node_rank'] = 0
     return self.__convert_prediction(self.model.predict(df))
